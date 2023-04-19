@@ -1,13 +1,15 @@
 package br.com.loja.virtual.repository.app;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import br.com.loja.virtual.repository.Util.ConnectionFactory;
+
 public class TestaConexao {
-public static void main(String[] args) throws SQLException {
-	Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3307/loja_virtual?useTimezone=true&serverTimezone=UTC", "root", "Alura123");
-	System.out.println("Fechando conexão!");
-	connection.close();
-}
+	public static void main(String[] args) throws SQLException {
+		ConnectionFactory connectionFactory = new ConnectionFactory();
+		Connection connection = connectionFactory.recuperarConexao();
+		System.out.println("Fechando conexão!");
+		connection.close();
+	}
 }
