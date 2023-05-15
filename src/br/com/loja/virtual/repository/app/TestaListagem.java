@@ -15,18 +15,17 @@ public class TestaListagem {
 		System.out.println("Fechando conexão!");
 
 		PreparedStatement stm = connection.prepareStatement("SELECT ID, NOME, DESCRICAO FROM PRODUTO");
-		
+		stm.execute();
 
 		ResultSet rst = stm.getResultSet();
 
 		while (rst.next()) {
 			Integer id = rst.getInt("ID");
-			System.out.println(id);
-
 			String nome = rst.getString("Nome");
-			System.out.println(nome);
-
 			String descricao = rst.getString("DESCRICAO");
+
+			System.out.println(id);
+			System.out.println(nome);
 			System.out.println(descricao);
 		}
 		System.out.println("Resultado");
