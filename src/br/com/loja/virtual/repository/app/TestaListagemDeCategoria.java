@@ -6,7 +6,9 @@ import java.util.List;
 
 import br.com.loja.virtual.repository.Util.ConnectionFactory;
 import br.com.loja.virtual.repository.dao.CategoriaDAO;
+import br.com.loja.virtual.repository.dao.ProdutoDAO;
 import br.com.loja.virtual.repository.modelo.Categoria;
+import br.com.loja.virtual.repository.modelo.Produto;
 
 public class TestaListagemDeCategoria {
 	public static void main(String[] args) throws SQLException {
@@ -14,7 +16,16 @@ public class TestaListagemDeCategoria {
 		try (Connection connection = new ConnectionFactory().recuperarConexao()) {
 			CategoriaDAO categoriaDAO = new CategoriaDAO(connection);
 			List<Categoria> listaDeCategorias = categoriaDAO.listar();
-			listaDeCategorias.stream().forEach(ct ->  System.out.println(ct.getNome()));
+			listaDeCategorias.stream().forEach(ct -> {
+			System.out.println(ct.getNome());
+			try {
+				for(Produto produto : new ProdutoDAO(connection).buscar(ct)) {
+					System.out.println(ct.getNome()+ " - "+produto.getNome());
+				}
+			} catch (SQLException e) {
+				e.printStackTrace();
+			}
+			});
 
 		}
 	}
