@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import br.com.loja.virtual.repository.Util.ConnectionFactory;
+import br.com.loja.virtual.repository.factory.ConnectionFactory;
 
 public class TestaInsercaoComParametro {
 	public static void main(String[] args) throws SQLException {

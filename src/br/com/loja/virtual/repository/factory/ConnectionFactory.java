@@ -1,4 +1,4 @@
-package br.com.loja.virtual.repository.Util;
+package br.com.loja.virtual.repository.factory;
 
 import java.sql.Connection;
 import java.sql.SQLException;

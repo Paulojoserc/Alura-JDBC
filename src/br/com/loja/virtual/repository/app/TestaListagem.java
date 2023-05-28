@@ -5,7 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import br.com.loja.virtual.repository.Util.ConnectionFactory;
+import br.com.loja.virtual.repository.factory.ConnectionFactory;
 
 public class TestaListagem {
 	public static void main(String[] args) throws SQLException {
