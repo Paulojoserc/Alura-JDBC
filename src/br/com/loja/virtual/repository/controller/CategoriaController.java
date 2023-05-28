@@ -1,7 +1,6 @@
 package br.com.loja.virtual.repository.controller;
 
 import java.sql.Connection;
-import java.util.ArrayList;
 import java.util.List;
 
 import br.com.loja.virtual.repository.dao.CategoriaDAO;
