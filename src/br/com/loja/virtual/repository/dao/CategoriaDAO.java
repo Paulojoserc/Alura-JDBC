@@ -19,7 +19,8 @@ public class CategoriaDAO {
 
 	}
 
-	public List<Categoria> listar() throws SQLException {
+	public List<Categoria> listar(){
+	try {
 		List<Categoria> categorias = new ArrayList<>();
 
 		System.out.println("Executando a query de listar categoria");
@@ -39,6 +40,10 @@ public class CategoriaDAO {
 			}
 		}
 		return categorias;
+	}catch(SQLException e) {
+		throw new RuntimeException(e);
+	}
+		
 	}
 	
 	public List<Categoria> listarComProduto() throws SQLException {
